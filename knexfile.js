@@ -1,4 +1,6 @@
 // Update with your config settings.
+// https://events-serv.herokuapp.com/
+
 
 module.exports = {
   development: {
