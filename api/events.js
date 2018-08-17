@@ -7,6 +7,7 @@ function isValidId(req, res, next){
   next(new Error('Invalid Id'))
 }
 function validEvent (events){
+  console.log(events)
   const hasTitle = typeof events.title == 'string' && events.title.trim() != '';
   const hasDescription = typeof events.description == 'string' && events.description.trim() != '';
   const hasDate = typeof events.date == 'string' && events.date.trim() != '';
@@ -54,13 +55,12 @@ router.put('/:id', isValidId, (req, res, next) => {
 })
 
 router.delete('/:id', isValidId, (req, res) => {
-  if(validEvent(req.body)){
+
     queries.delete(req.params.id).then(() => {
       res.json({
         deleted: true
       })
     })
-  }
 })
 
 module.exports = router;
